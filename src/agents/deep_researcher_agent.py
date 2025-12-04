@@ -706,3 +706,17 @@ def create_deep_researcher_node():
         return result
 
     return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
