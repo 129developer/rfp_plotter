@@ -673,9 +673,92 @@ Provide detailed, structured output in JSON format with clear categorization.
             raw_content='Extraction failed'
         )
 
-# Factory function to create deep researcher agent
 def create_deep_researcher_agent(llm: Optional[ChatOpenAI] = None, 
                                 google_api_key: Optional[str] = None,
                                 search_engine_id: Optional[str] = None) -> DeepResearcherAgent:
     """Create and configure deep researcher agent"""
     return DeepResearcherAgent(llm=llm, google_api_key=google_api_key, search_engine_id=search_engine_id)
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
+
+
+def create_deep_researcher_node():
+    """Create a LangGraph node for the Deep Researcher agent"""
+    agent = create_deep_researcher_agent()
+
+    def deep_researcher_node(state: WorkflowState) -> WorkflowState:
+        result = agent.process_rfp_documents(state)
+        # Optional type safety: convert dict to WorkflowState if needed
+        if isinstance(result, dict):
+            result = WorkflowState.parse_obj(result)
+        return result
+
+    return deep_researcher_node
